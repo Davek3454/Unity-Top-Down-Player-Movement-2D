@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // Local rigidbody variable to hold a reference to the attached Rigidbody2D component
     new Rigidbody2D rigidbody2D;
-
+    [Range(0.0f, 6000.0f)]
     public float movementSpeed = 1000.0f;
 
     void Awake()
@@ -23,7 +23,13 @@ public class PlayerController : MonoBehaviour
     {
         // Handle user input
         Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+       
+    } 
 
+    void FixedUpdate()
+    {
+        // Handle user input
+        Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Move(targetVelocity);
     }
 
